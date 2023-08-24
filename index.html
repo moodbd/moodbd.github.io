@@ -1,51 +1,63 @@
 <html>
   <head>
     <title>MoodMesh</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-      body, html {
-  background: #111;
-  font-family: 'Inter', sans-serif;
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  justify-content: center;
-  flex-direction: column;
-  gap: 24px;
-}
+            body {
+        background: #111;
+        font-family: 'Inter', sans-serif;
+      }
+            * { margin: 0; padding: 0; color: #BDC3C7; box-sizing: border-box; }
 
-* { margin: 0; padding: 0; color: #BDC3C7 }
+            .container {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        flex-direction: column;
+        gap: 24px;
+              padding: 40px;
+            }
 
-h1 { 
-  font-weight: 600; 
-  text-align: center;
-    max-width: 1000px;
-  font-size: 48px;
-  padding: 0 40px;
 
-}
+      h1 {
+        font-weight: 600;
+        text-align: center;
+          max-width: 1000px;
+        font-size: 48px;
 
-p {
-  font-size: 20px;
-  color: #D4AF37;
-  font-weight: 600;
-}
+      }
 
-      a { margin-top: 24px;)
+      p {
+        font-size: 20px;
+        color: #D4AF37;
+        font-weight: 600;
+      }
 
-@media (max-width: 600px){
-  h1 { font-size: 32px }
-}
+            a { margin-top: 16px }
+
+      @media (max-width: 600px){
+        h1 { font-size: 32px; text-align: left; }
+        .container { padding: 24px; align-items: flex-start}
+
+      }
     </style>
   </head>
   <body>
-    <p>MoodMesh</p>
-    <h1>Moodboarding made simple. Capture inspiration, curate ideas, and set the tone for every design journey.</h1>
-    <a href="https://x.com/kushsolitary">Follow on X</a>
+    <div class="container">
+      <p>MoodMesh</p>
+      <h1>
+        Moodboarding made simple. Capture inspiration, curate ideas, and set the
+        tone for every design journey.
+      </h1>
+      <a href="https://x.com/kushsolitary">Follow on X</a>
+    </div>
   </body>
 </html>
