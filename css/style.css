@@ -4,14 +4,18 @@
   font-weight: 1 900;
 }
 
+:root {
+  --color-brand: #a431ff;
+}
+
 body {
   background: black;
-  background-image: radial-gradient(
+  /* background-image: radial-gradient(
     circle at top,
     rgba(148, 101, 255, 0.2) 0%,
     rgba(3, 0, 20, 0) 100%
   );
-
+ */
   font-family: "ClashDisplay", sans-serif;
 }
 
@@ -30,27 +34,15 @@ body {
   flex-direction: column;
   gap: 24px;
   padding: 40px;
-
-  background: repeating-linear-gradient(
-      90deg,
-      rgba(148, 101, 255, 0.15),
-      rgba(148, 101, 255, 0.15) 1px,
-      transparent 1px,
-      transparent 100%
-    ),
-    repeating-linear-gradient(
-      180deg,
-      rgba(148, 101, 255, 0.15),
-      rgba(148, 101, 255, 0.15) 1px,
-      transparent 1px,
-      transparent 100%
-    );
-  background-size: 5em 5em;
-  background-position: top center;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(19, 6, 30, 0) 0%,
+    rgba(19, 6, 30, 0.8) 100%
+  );
 }
 
 h1 {
-  font-weight: 500;
+  font-weight: 550;
   text-align: center;
   max-width: 1000px;
   font-size: 48px;
@@ -58,28 +50,51 @@ h1 {
 }
 
 p {
-  font-size: 20px;
-  color: #d4af37;
+  font-size: 18px;
+  color: var(--color-brand);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 32px var(--color-brand);
+}
+
+.brand {
+  color: var(--color-brand);
+}
+
+h1 span {
+  display: block;
+}
+
+.divider {
+  height: 2px;
+  width: 1rem;
+  background: var(--color-brand);
+  border-radius: 1px;
+}
+
+footer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-top: 10px;
+}
+
+footer * {
+  text-transform: uppercase;
+  color: var(--color-brand);
   font-weight: 500;
-  letter-spacing: 4px;
-  text-shadow: 0 0 50px #d4af37;
+  letter-spacing: 2px;
+  text-decoration: none;
+  line-height: 0;
 }
 
 a {
-  margin-top: 16px;
-  font-size: 12px;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 500;
-  letter-spacing: 2px;
-  display: inline-block;
-  padding: 16px 32px;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  border-radius: 999px;
-  -webkit-border-radius: 999px;
-  -moz-border-radius: 999px;
-  -ms-border-radius: 999px;
-  -o-border-radius: 999px;
+  transition: 0.2s ease;
+}
+
+a:hover {
+  color: white;
+  text-shadow: 0 0 32px var(--color-brand);
 }
 
 @media (max-width: 600px) {
