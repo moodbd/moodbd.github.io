@@ -5,18 +5,26 @@
 }
 
 :root {
-  --color-brand: #a431ff;
+  --color-body: #050505;
+
+  --color-purple: #7f177f;
+  --color-yellow: #fce97b;
+  --color-pink: #ee5dac;
+  --color-dark-purple: #e46de6;
+  --color-dark-yellow: #aa8731;
+
+  --color-text-top: #e8e8e8;
+  --color-text-bottom: #a7a7a7;
+
+  --display-font: "SF Pro Display", -apple-system, "system-ui", "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --text-font: "SF Pro Text", -apple-system, "system-ui", "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
-  background: black;
-  /* background-image: radial-gradient(
-    circle at top,
-    rgba(148, 101, 255, 0.2) 0%,
-    rgba(3, 0, 20, 0) 100%
-  );
- */
-  font-family: "ClashDisplay", sans-serif;
+  background: var(--color-body);
+  font-family: var(--text-font);
 }
 
 * {
@@ -34,27 +42,81 @@ body {
   flex-direction: column;
   gap: 24px;
   padding: 40px;
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(0, 0, 0, 0.25) 0%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
+}
+
+.highlight {
+  position: fixed;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(150px);
+}
+
+.highlight--purple {
+  width: 500px;
+  height: 500px;
+  background: var(--color-purple);
+  left: calc(50% - 400px);
+  top: -200px;
+  opacity: 0.4;
+}
+
+.highlight--yellow {
+  width: 800px;
+  height: 800px;
+  background: var(--color-yellow);
+  right: calc(50% - 600px);
+  top: -400px;
+  opacity: 0.1;
+}
+
+.logo {
+  border-radius: 30px;
+  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.5),
+    0px 36px 100px 0px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  font-family: "roc-grotesk-variable", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variation-settings: "wght" 700;
+  line-height: normal;
+  letter-spacing: 3.2px;
+  color: white;
+  text-shadow: 0 0 32px rgba(255, 255, 255, 0.75);
 }
 
 h1 {
-  font-weight: 550;
+  font-family: var(--display-font);
+  font-weight: 500;
   text-align: center;
-  max-width: 1000px;
   font-size: 48px;
-  line-height: 1.4;
+  background: linear-gradient(
+    180deg,
+    var(--color-text-top) 0%,
+    var(--color-text-bottom) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-p {
+.subtext {
+  text-align: center;
   font-size: 18px;
-  color: var(--color-brand);
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-shadow: 0 0 32px var(--color-brand);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  max-width: 60ch;
+  opacity: 0.6;
+  background: linear-gradient(
+    180deg,
+    var(--color-text-top) 0%,
+    var(--color-text-bottom) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .brand {
@@ -88,13 +150,60 @@ footer * {
   line-height: 0;
 }
 
-a {
-  transition: 0.2s ease;
+.button {
+  position: relative;
+  display: inline-block;
+  border-radius: 8px;
+  background: linear-gradient(
+    131deg,
+    var(--color-dark-purple) 0%,
+    var(--color-pink) 48.2%,
+    var(--color-dark-yellow) 100%
+  );
+  box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.5) inset,
+    0 0 0 6px rgba(255, 255, 255, 0.1);
+  padding: 12px 24px;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transform: translate3d(0, 0, 0);
 }
 
-a:hover {
-  color: white;
-  text-shadow: 0 0 32px var(--color-brand);
+.button:after {
+  content: "";
+  position: absolute;
+  border-radius: 8px;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+
+  transition: opacity 0.2s ease;
+}
+
+.button:hover,
+.button:focus {
+  box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.25) inset,
+    0 0 0 10px rgba(255, 255, 255, 0.12);
+}
+
+.button:hover::after,
+.button:focus::after {
+  opacity: 0.4;
+}
+
+.button:active {
+  box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.25) inset,
+    0 0 0 4px rgba(255, 255, 255, 0.12);
+  transform: translate3d(0, 2px, 0);
 }
 
 @media (max-width: 600px) {
