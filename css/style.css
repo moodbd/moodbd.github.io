@@ -283,5 +283,5 @@ a:hover {
 canvas {
   min-width: 800px;
   transform: translate(-50%, -50%);
-  opacity: 0.125;
+  opacity: 0.08;
 }
