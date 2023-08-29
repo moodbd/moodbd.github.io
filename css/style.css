@@ -283,7 +283,7 @@ a:hover {
 canvas {
   min-width: 800px;
   transform: translate(-50%, -50%);
-  opacity: 0.15;
+  opacity: 0.2;
   -webkit-mask-image: radial-gradient(circle at center, black, transparent);
   mask-image: radial-gradient(circle at center, black, transparent);
   filter: blur(10px);
